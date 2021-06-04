@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p id="log"></p>
+    <script>
+        //максимум минимум
+        function Min(num1, num2) {
+            if (num1 > num2) {
+                console.log(`Число ${num1} больше чем число ${num2}`);
+                return num1
+
+            } else if (num2 > num1) {
+                console.log(`Число ${num2} больше чем число ${num1}`);
+                return num2
+            } else {
+                console.log(`Число ${num2}равно ${num1}`);
+                return num1;
+            }
+        }
+
+        console.log(" Задание 2 Ведите число и степень в которю необходимо возвести название функции myPow");
+
+        function myPow(number, pow) {
+            return Math.pow(number, pow);
+        }
+
+        //калькулятор
+        function myCalc(num1, strVal, num2) {
+            switch (strVal) {
+                case "+":
+                    return num1 + num2;
+                    break;
+                case "-":
+                    return num1 - num2;
+                    break;
+                case "*":
+                    return num1 * num2;
+                    break;
+                case "/":
+                    return num1 / num2;
+                    break;
+
+            }
+        }
+        console.log("Задача 4 простое чилсо isPrime");
+        //простое число
+        function isPrime(num) {
+            for (let i = 2, s = Math.sqrt(num); i <= s; i++) {
+                if (num % i === 0) {
+                    console.log("Это не простое число");
+                    return false;
+                }
+            }
+            console.log("Это просто число");
+            return num > 1;
+        }
+
+        console.log(
+            "Написать функцию, которая принимает число и выводит таблицу умножения для этого числа. Вызовите функцию для всех чисел от 2 до 9"
+        );
+
+        function TableMult() {
+            var result = 'x ';
+            for (var i = 0; i < 11; i++) {
+
+                for (var j = 0; j < 11; j++) {
+
+                    if (i == 0 && j > 0) {
+                        result += '[' + j + ']';
+                    } else if (j == 0 && i > 0) {
+                        result += '[' + i + '] ';
+                    } else if (i > 0 && j > 0) {
+                        result += (i * j) + ' ';
+                    }
+                }
+                result += '\n'
+            }
+
+            console.log(result);
+        }
+
+        //несколько аргументов
+
+        console.log("Написать функцию, которая принимает от 1 до 5 чисел и возвращает их сумму ");
+
+        function manyArguments() {
+            let result = 0;
+            if (arguments.length <= 5) {
+                for (let i = 0; i < arguments.length; i++) {
+                    result += arguments[i];
+                }
+                return result;
+            } else {
+                console.log("введите до 5 параметров")
+                return 0;
+            }
+        }
+        //наибольшее из аргументов
+        console.log("Написать функцию, которая принимает от 1 до 5 чисел и возвращает большее из них.");
+
+        function maxArguments() {
+            let res = 0;
+            if (arguments.length <= 5) {
+                for (let i = 0; i < arguments.length; i++) {
+                    if (res < arguments[i]) {
+                        res = arguments[i];
+                    }
+                }
+            }
+            return res;
+        }
+
+        console.log(
+            "Написать функцию, которая выводит все четные или не четные числа, в указанном пользователем диапазоне. Какие числа выводить, определяется третьим параметром типа bool (true – четные, false – нечетные)"
+        );
+        //четные не четные числа
+        function Even_and_odd(begin, end, boolenVar) {
+
+            while (begin < end) {
+                if (boolenVar == true && begin % 2 == 0) {
+                    console.log(`Четное число ${begin}`);
+                }
+                if (boolenVar == false && begin % 2 != 0) {
+                    console.log(`Не четное число ${begin}`);
+                }
+                begin++;
+            }
+
+
+        }
+
+
+        console.log("Написать функцию, которая вычисляет факториал заданного числа");
+        //поиск факториала с помощью рекурсии
+        function Factorial(x) {
+            if (x == 0) {
+                return 1;
+            } else {
+                return x * Factorial(x - 1);
+            }
+
+        }
+
+        //Написать функцию, которая выводит все числа из заданного 
+        //пользователем диапазона в прямом порядке. И еще одну 
+        //функцию для вывода в обратном порядке
+
+        function Range(begin, end) {
+            let b = end;
+            let e = begin;
+            while (begin < end) {
+
+                console.log(begin)
+
+                begin++;
+            }
+
+            Range2(b, e);
+
+
+        }
+
+        function Range2(begin, end) {
+            while (begin > end) {
+                console.log(begin);
+                begin--;
+            }
+        }
+
+
+        //Написать функцию, которая выводит переданное ей число 
+        //задом наперед. 
+        function Rev(str) {
+
+            console.log(('' + str).split('').reverse().join(''));
+        }
+//Написать функцию, которая считает сумму цифр числа.
+//Например: число 1357, сумма 1 + 3 + 5 + 7 = 16
+
+function SumSplit(n)
+{
+    n = `${n}`;
+    if( n.length == 1 )
+    {
+        return +n;
+    }  // Плюсик перед строкой - превращает её в число.
+  
+  return +n[0] + SumSplit( n.slice(1) );
+  
+    
+
+   
+}
+
+
+
+    </script>
+</body>
+
+</html>
